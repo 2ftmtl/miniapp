@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>INFORMATION CENTER</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background: url("https://github.com/2ftmtl/miniapp/raw/main/BACKGROUND%20BLUE.png") no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .header-image {
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto 0px auto;
+    }
+    .header-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .menu-container { display: flex; flex-direction: column; align-items: center; }
+    .menu-btn-wrapper { position: relative; width: 90%; max-width: 400px; margin-bottom: 6px; }
+    .menu-btn {
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; padding: 15px; font-size: 14px;
+      border: none; border-radius: 12px; background: #3c4b58; color: #fff;
+      cursor: pointer; transition: 0.3s; position: relative; z-index: 1;
+    }
+    .menu-btn:hover { background: #23313e; }
+    .menu-btn img { width: 40px; height: 40px; border-radius: 50%; position: absolute; left: 15px; }
+    .menu-btn span { width: 100%; text-align: center; pointer-events: none; }
+    .menu-btn::after { content: ">>"; position: absolute; right: 15px; font-size: 18px; color: #fff; transition: transform 0.3s ease, right 0.3s ease; }
+    .menu-btn.open::after { transform: rotate(90deg); right: 10px; }
+
+    .content-section {
+      width: 100%; max-height: 0; overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+      background: rgba(13, 24, 62, 0.736); border-radius: 12px;
+      padding: 0 15px; box-sizing: border-box; text-align: left; margin-top: -4px;
+    }
+    .content-section.open { max-height: 800px; padding: 15px; }
+    .content-section img { max-width: 100%; border-radius: 8px; margin-top: 10px; }
+    .content-scroll { max-height: 400px; overflow-y: auto; box-sizing: border-box; font-size: 13px; }
+    .content-scroll p { margin: 10px 0; line-height: 1.6; word-wrap: break-word; }
+    .content-scroll h2 { margin: 15px 0 10px 0; }
+    .content-scroll img { margin: 10px 0; }
+    .content-scroll u { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="header-image">
+    <img src="https://github.com/2ftmtl/miniapp/raw/main/HEADER.png" alt="Header Image">
+  </div>
+
+  <div class="menu-container">
+
+    <!-- BUTTON 1 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('vpn', this)">
+        <img src="https://github.com/2ftmtl/miniapp/raw/main/BUTTON%20LOGO%20VPN.png" alt="VPN Logo">
+        <span>VPN: Infos & Help</span>
+      </button>
+      <div id="vpn" class="content-section">
+        <div class="content-scroll">
+          <h2>Free VPNs to use</h2>
+          <p><u>Step 1: Choose a safe Free VPN from the list.</u></p>
+          <p>We recommend many FREE VPNs such as HolaVPN, TunnelBear, ProtonVPN, NordVPN...</p>
+          <p><u>Step 2: Download and install the app (desktop or mobile).</u></p>
+          <p>Visit the website from the selected VPN, download for desktop / browser / mobile app.</p>
+          <p><u>Step 3: Register and log in.</u></p>
+          <p>Create your free account on the chosen app, then log in.</p>
+          <p><u>Step 4: Choose a server and connect to it.</u></p>
+          <p>We suggest choosing a server from Norway, then connect to establish a secure connection.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 2 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('signup', this)">
+        <img src="https://github.com/2ftmtl/miniapp/raw/main/BUTTON%20LOGO%20SIGNUP.png" alt="Signup Logo">
+        <span>How to sign up?</span>
+      </button>
+      <div id="signup" class="content-section">
+        <div class="content-scroll">
+          <h2>Sign up on DUELBITS</h2>
+          <p><u>Step 1: Create your account</u></p>
+          <p>Create your account using our link <a href=https://duelbits.com/?a=2ftm target="_blank" style="color:#00ffff;">https://duelbits.com/?a=2ftm</a> and use code 2ftm for the Refer-a-friend section.</p>
+          <p><u>Step 2: Enter your information.</u></p>
+          <p>Fill the required information.</p>
+          <p><u>Step 3: Verify your account</u></p>
+          <p>Do KYC verification for security. Crypto deposits only require KYC1; Credit Cards/Interac need KYC2.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 3 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('deposit', this)">
+        <img src="https://github.com/2ftmtl/miniapp/raw/main/BUTTON%20LOGO%20DEPOSIT.png" alt="Deposit Logo">
+        <span>Deposit on DUELBITS</span>
+      </button>
+      <div id="deposit" class="content-section">
+        <div class="content-scroll">
+          <h2>Deposit on DUELBITS</h2>
+          <p><u>Step 1: Log into your account</u></p>
+          <p>Check the Sign up section if you have not created your account.</p>
+          <p><u>Step 2: Choose your deposit method</u></p>
+          <p>Select a deposit method: Crypto, Credit Card, or Interac transfer. Follow the instructions on-screen.</p>
+          <p><u>Step 3: Confirm your deposit</u></p>
+          <p>Once confirmed, funds should be in your account in minutes. Contact support if issues arise.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 4 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('withdraw', this)">
+        <img src="https://github.com/2ftmtl/miniapp/raw/main/BUTTON%20LOGO%20WITHDRAW.png" alt="Withdraw Logo">
+        <span>How to withdraw on DUELBITS</span>
+      </button>
+      <div id="withdraw" class="content-section">
+        <div class="content-scroll">
+          <h2>Withdraw your winnings</h2>
+          <p><u>Step 1: Log into your account</u></p>
+          <p>Click the wallet icon, then withdraw.</p>
+          <p><u>Step 2: Choose the balance to withdraw</u></p>
+          <p>Select crypto or cash balance. Withdraw in same currency as deposit.</p>
+          <p><u>Step 3: Confirm your withdrawal</u></p>
+          <p>Check your wallet address and click withdraw. Funds arrive in 5–30 minutes.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    let openSection = null;
+    let openButton = null;
+
+    function toggleSection(id, btn) {
+      const section = document.getElementById(id);
+      if(openSection && openSection !== section) {
+        openSection.classList.remove("open");
+        if(openButton) openButton.classList.remove("open");
+      }
+      if(section.classList.contains("open")) {
+        section.classList.remove("open");
+        btn.classList.remove("open");
+        openSection = null;
+        openButton = null;
+      } else {
+        section.classList.add("open");
+        btn.classList.add("open");
+        openSection = section;
+        openButton = btn;
+      }
+    }
+  </script>
+
+</body>
+</html>
