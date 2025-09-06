@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>INFORMATION CENTER</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background: url("https://github.com/2ftmtl/miniapp/blob/main/BACKGROUND%20BLUE.png?raw=true") no-repeat center center fixed; 
+      background-size: cover;
+      color: #ffffff;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    /* ✅ Custom Header Image */
+    .header-image {
+      width: 90%;
+      max-width: 400px;
+      margin: 0 auto 0px auto; /* spacing below header */
+    }
+    .header-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px; /* optional */
+    }
+
+    .menu-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .menu-btn-wrapper {
+      position: relative;
+      width: 90%;
+      max-width: 400px;
+      margin-bottom: 6px; /* gap between buttons */
+    }
+
+    .menu-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 15px;
+      font-size: 14px;
+      border: none;
+      border-radius: 12px;
+      background: #3c4b58;
+      color: #ffffff;
+      cursor: pointer;
+      transition: 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .menu-btn:hover {
+      background: #23313e;
+    }
+
+    /* Circle Logo on Left */
+    .menu-btn img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      position: absolute;
+      left: 15px;
+    }
+
+    /* Button text centered */
+    .menu-btn span {
+      width: 100%;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    /* Arrow on right */
+    .menu-btn::after {
+      content: ">>";
+      position: absolute;
+      right: 15px;
+      font-size: 18px;
+      color: #ffffff;
+      transition: transform 0.3s ease, right 0.3s ease;
+    }
+
+    /* Rotate and slide arrow when open */
+    .menu-btn.open::after {
+      transform: rotate(90deg);
+      right: 10px;
+    }
+
+    .content-section {
+      width: 100%; /* same as button */
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, padding 0.5s ease;
+      background: rgba(13, 24, 62, 0.736);
+      border-radius: 12px;
+      padding: 0 15px;
+      box-sizing: border-box;
+      text-align: left;
+      margin-top: -4px; 
+    }
+
+    .content-section.open {
+      max-height: 800px;
+      padding: 15px;
+    }
+
+    .content-section img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    .content-scroll {
+      max-height: 400px;
+      overflow-y: auto;
+      box-sizing: border-box; 
+      font-size: 13px; /* smaller font for readability */
+    }
+
+    /* ✅ Spacing and readability */
+    .content-scroll p {
+      margin: 10px 0;
+      line-height: 1.6;
+      word-wrap: break-word; /* prevent overflow */
+    }
+
+    .content-scroll h2 {
+      margin: 15px 0 10px 0;
+    }
+
+    .content-scroll img {
+      margin: 10px 0;
+    }
+
+    /* ✅ Underline styling */
+    .content-scroll u {
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ✅ Header Placeholder -->
+  <div class="header-image">
+    <img src="https://github.com/2ftmtl/miniapp/blob/main/HEADER.png?raw=true" alt="Header Image">
+  </div>
+
+  <div class="menu-container">
+
+    <!-- BUTTON 1 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('vpn', this)">
+        <img src="https://github.com/2ftmtl/miniapp/blob/main/BUTTON%20LOGO%20VPN.png?raw=true" alt="VPN Logo">
+        <span>VPN: Infos & Help</span>
+      </button>
+      <div id="vpn" class="content-section">
+        <div class="content-scroll">
+          <h2>Free VPNs to use</h2>
+          <p><u>Step 1: Choose a safe Free VPN from the list.</u></p>
+          <p>We recommend many FREE VPN's such as HolaVPN, TunnelBear, ProtonVPN, NordVPN...</p>
+          <p><u>Step 2: Download and install the app (desktop or mobile).</u></p>
+          <p>Visit the website from the selected VPN, download for desktop / browser / mobile app.</p>
+          <p><u>Step 3: Register and log in.</u></p>
+          <p>Create your free account on the chosen app, then log in.</p>
+          <p><u>Step 4: Choose a server and connect to it. Your new location will be the one chosen (Country, city, etc)</u></p>
+          <p>We suggest choosing a server from Norway, then connect to establish a secure connection.</p>
+          <p>Done! You are now connected to the VPN and ready to play and navigate securely.</p>
+          <img src="vpn-free.jpg" alt="VPN Image">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 2 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('duelbits', this)">
+        <img src="https://github.com/2ftmtl/miniapp/blob/main/BUTTON%20LOGO%20SIGNUP.png?raw=true" alt="Duelbits Logo">
+        <span>How to sign up?</span>
+      </button>
+      <div id="duelbits" class="content-section">
+        <div class="content-scroll">
+          <h2>Sign up on DUELBITS</h2>
+          <p><u>Step 1: Create your account</u></p>
+          <p>Create your account using our link https://duelbits.com/?a=2ftm and make sure you use code 2ftm in the Refer-a-friend section. You will now benefit from our exclusives offers</p>
+          <p><u>Step 2: Enter your information.</u></p>
+          <p>Create your account, fill the needed informations.</p>
+          <p><u>Step 3: Verify your account</u></p>
+          <p>Verify your account by doing the KYC1 and/or KYC2 verification process. This makes your account more secure and is necessary. Crypto deposits will only require KYC1, but if you want to deposit using Credit Cards or Interac transfer you will need to do KYC2</p>
+
+          <p>Good luck! Navigate through the main menu of this bot to claim our special and exclusives offers such as the free 50$ session!</p>
+          <img src="db-rewards.jpg" alt="Duelbits">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 3 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('crazybet', this)">
+        <img src="https://github.com/2ftmtl/miniapp/blob/main/BUTTON%20LOGO%20DEPOSIT.png?raw=true" alt="Crazybet Logo">
+        <span>Deposit on DUELBITS</span>
+      </button>
+      <div id="crazybet" class="content-section">
+        <div class="content-scroll">
+          <h2>Deposit on DUELBITS</h2>
+          <p><u>Step 1: Log into your account</u></p>
+          <p>If you did not create your account yet, check the section above named Sign up on Duelbits</p>
+          <p><u>Step 2: Choose your deposit method</u></p>
+          <p>On the deposit page / cashier logo, you will see different deposit methods. Select your favorite way to deposit:
+- Cryptocurrency : copy the deposit address or scan the QR code given by Duelbits. Choose the crypto of your choice then transfer your funds from your personal wallet / ledger.
+- Credit card / Interac transfer : choose your deposit method. You can use Revolut as well as other payment systems. Follow instructions on the option chosen.</p>
+          <p><u>Step 3: Confirm your deposit</u></p>
+          <p>Once the transactio confirmed, funds should be in your account in a matter of minutes. Depending on the deposit method, time can vary. If you have any problems, contact Support.</p>
+
+          <p>Done! You are now able to deposit money on Duelbits at any given time, in only 3 easy steps.</p>
+          <img src="vpn-free.jpg" alt="VPN Image">
+        </div>
+      </div>
+    </div>
+
+    <!-- BUTTON 4 -->
+    <div class="menu-btn-wrapper">
+      <button class="menu-btn" onclick="toggleSection('stream', this)">
+        <img src="https://github.com/2ftmtl/miniapp/blob/main/BUTTON%20LOGO%20WITHDRAW.png?raw=true" alt="Stream Logo">
+        <span>How to withdraw on Duelbits</span>
+      </button>
+      <div id="stream" class="content-section">
+        <div class="content-scroll">
+         <h2>Withdraw your winnings on DUELBITS</h2>
+          <p><u>Step 1: Log into your account</u></p>
+          <p>Click on the green wallet on the top center of the page Duelbits and click on withdraw</p>
+          <p><u>Step 2: Choose the balance to withdraw</u></p>
+          <p>Choose the crypto or cash balance you wish to withdraw. Follow the steps on screen. Note: if you deposited in a specific crypto (ETH, LTC, USDC, BTC...) you will need to withdraw in the same currency as you deposited it.</p>
+          <p><u>Step 3: Confirm your withdrawal</u></p>
+          <p>Make sure the adress you copy-pasted / entered on the withdrawal adress is the same as your wallet / ledger deposit adress. Click on withdraw.</p>
+
+          <p>Congratulations for your win! Your withdrawal should be in your account from 5 to 30 minutes depending on your wallet provider. Enjoy your wins!</p>
+          <img src="stream.jpg" alt="Stream">
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+
+    let openSection = null;
+    let openButton = null;
+
+    function toggleSection(id, btn) {
+      const section = document.getElementById(id);
+
+      // Close previously open section
+      if(openSection && openSection !== section) {
+        openSection.classList.remove("open");
+        if(openButton) openButton.classList.remove("open");
+      }
+
+      // Toggle current section
+      if(section.classList.contains("open")) {
+        section.classList.remove("open");
+        btn.classList.remove("open");
+        openSection = null;
+        openButton = null;
+      } else {
+        section.classList.add("open");
+        btn.classList.add("open");
+        openSection = section;
+        openButton = btn;
+      }
+    }
+  </script>
+</body>
+</html>
